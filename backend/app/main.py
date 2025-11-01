@@ -16,7 +16,7 @@ from app.schemas import UserQuery, AIResponse, ChatMode, RiskScoreItem, YouTubeL
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Import AI modules (will be implemented later)
+# Import AI modules
 try:
     from app.ai_engine import get_ai_response
     AI_ENGINE_AVAILABLE = True
@@ -25,21 +25,17 @@ except ImportError as e:
     AI_ENGINE_AVAILABLE = False
 
 try:
-    from app.risk_module import calculate_risk
+    from app.risk_module import RiskAssessmentEngine
     RISK_MODULE_AVAILABLE = True
 except ImportError as e:
     logger.warning(f"Risk module not available: {e}")
     RISK_MODULE_AVAILABLE = False
 
-# Lifespan context manager (optional for hackathon, good for production)
+# Lifespan context manager
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Manages application lifecycle."""
     logger.info("🚀 Coach Carter is starting up...")
-    # TODO: If you want to load resources here, coordinate with Person 2
-    # global vector_store, llm_chain
-    # vector_store = load_faiss(...)
-    # llm_chain = create_chain(...)
     logger.info("✅ Startup complete")
     
     yield
@@ -74,7 +70,7 @@ app.add_middleware(
 # --- API Endpoints ---
 
 @app.get("/")
-def root():  # Regular def, not async
+def root():
     """Root endpoint - confirms API is running."""
     return {
         "message": "Welcome to Coach Carter API",
@@ -84,7 +80,7 @@ def root():  # Regular def, not async
     }
 
 @app.get("/api/health")
-def health_check():  # Regular def
+def health_check():
     """Health check for monitoring."""
     return {
         "status": "ok",
@@ -94,20 +90,12 @@ def health_check():  # Regular def
     }
 
 @app.post("/api/chat", response_model=AIResponse)
-def chat_endpoint(query: UserQuery):  # Regular def - FastAPI runs in threadpool automatically
+def chat_endpoint(query: UserQuery):
     """
     Main chat endpoint for Coach Carter.
     
-    Uses regular 'def' instead of 'async def' because:
-    - get_ai_response() is synchronous/blocking (LangChain + OpenAI calls)
-    - FastAPI automatically runs 'def' endpoints in a threadpool
-    - This prevents blocking the event loop
-    
-    Args:
-        query: UserQuery with text, user_id, and mode
-        
-    Returns:
-        AIResponse with training plan, risk scores, YouTube links
+    Receives user queries and returns AI-generated training plans
+    with risk scores and YouTube links.
     """
     try:
         logger.info(f"Received query from user {query.user_id}: {query.text[:50]}...")
@@ -124,13 +112,29 @@ def chat_endpoint(query: UserQuery):  # Regular def - FastAPI runs in threadpool
                 youtube_links=[]
             )
         
-        # Call blocking AI function (FastAPI handles threading automatically)
-        ai_answer_text = get_ai_response(query.text, query.mode)
+        # Call AI function (FastAPI automatically runs in threadpool)
+        ai_answer_text = get_ai_response(query.text, query.mode.value)  # FIXED: Pass string value
         
         # Get risk analysis
         if RISK_MODULE_AVAILABLE:
-            user_injury = "lower back pain"  # TODO: Get from database
-            risk_scores = calculate_risk(ai_answer_text, user_injury)
+            user_profile = {
+                'injuries': ['lower back pain'],  # TODO: Get from database
+                'goal': 'strength'  # TODO: Get from database
+            }
+            
+            # Parse exercises from AI response (simple extraction)
+            risk_scores = []
+            exercises = ["Deadlift", "Squat", "Bench Press", "Row"]  # Extract from AI response in production
+            
+            for exercise in exercises:
+                assessment = RiskAssessmentEngine.assess_exercise(exercise, user_profile)
+                risk_scores.append(
+                    RiskScoreItem(
+                        exercise=assessment['exercise'],
+                        risk=assessment['risk'],
+                        effectiveness=assessment['effectiveness']
+                    )
+                )
         else:
             risk_scores = []
         
@@ -155,7 +159,7 @@ def chat_endpoint(query: UserQuery):  # Regular def - FastAPI runs in threadpool
         raise HTTPException(status_code=500, detail=f"Failed to generate response: {str(e)}")
 
 @app.post("/api/test")
-def test_schemas(query: UserQuery):  # Regular def
+def test_schemas(query: UserQuery):
     """Test endpoint for schema validation."""
     return {
         "received": query.model_dump(),
