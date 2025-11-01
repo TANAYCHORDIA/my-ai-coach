@@ -1,10 +1,11 @@
-# --- Core Backend ---
+# --- Backend Server ---
 fastapi
 uvicorn[standard]
 
-# --- AI / LLM Logic ---
+# --- AI / LLM Logic (Gemini) ---
 langchain
-openai
+langchain-google-genai
+google-generativeai
 
 # --- Environment Management ---
 python-dotenv
@@ -12,6 +13,6 @@ python-dotenv
 # --- Vector Database (for RAG) ---
 faiss-cpu
 
-# --- Optional (recommended for smooth ops) ---
+# --- Optional (recommended) ---
 pydantic
 requests
