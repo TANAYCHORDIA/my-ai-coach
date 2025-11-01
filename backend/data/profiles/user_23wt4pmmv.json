@@ -1,0 +1,19 @@
+{
+  "user_id": "user_23wt4pmmv",
+  "name": "tanay",
+  "age": 13,
+  "height_cm": 145.0,
+  "weight_kg": 80.0,
+  "gender": "male",
+  "sport": "football",
+  "experience_years": 1,
+  "goals": [
+    "injury_recovery",
+    "done"
+  ],
+  "duration_weeks": 8,
+  "sessions_per_week": 5,
+  "available_equipment": [],
+  "injuries": [],
+  "dietary_restrictions": []
+}

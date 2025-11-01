@@ -1,0 +1,22 @@
+{
+  "user_id": "user_97tktgtzo",
+  "name": "tanay",
+  "age": 21,
+  "height_cm": 165.0,
+  "weight_kg": 76.0,
+  "gender": "male",
+  "sport": "motorsports",
+  "experience_years": 0,
+  "goals": [
+    "fat_loss",
+    "injury_recovery",
+    "done"
+  ],
+  "duration_weeks": 23,
+  "sessions_per_week": 5,
+  "available_equipment": [],
+  "injuries": [
+    "knee injury"
+  ],
+  "dietary_restrictions": []
+}

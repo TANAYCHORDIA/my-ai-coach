@@ -1,0 +1,19 @@
+{
+  "user_id": "user_xbsju57ce",
+  "name": "ta",
+  "age": 21,
+  "height_cm": 122.0,
+  "weight_kg": 78.0,
+  "gender": "male",
+  "sport": "cricket",
+  "experience_years": 1,
+  "goals": [
+    "agility",
+    "done"
+  ],
+  "duration_weeks": 20,
+  "sessions_per_week": 5,
+  "available_equipment": [],
+  "injuries": [],
+  "dietary_restrictions": []
+}

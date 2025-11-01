@@ -1,0 +1,21 @@
+{
+  "user_id": "user_6ucgmf3oc",
+  "name": "tanay",
+  "age": 12,
+  "height_cm": 176.0,
+  "weight_kg": 76.0,
+  "gender": "male",
+  "sport": "mma",
+  "experience_years": 1,
+  "goals": [
+    "fat_loss",
+    "done"
+  ],
+  "duration_weeks": 12,
+  "sessions_per_week": 5,
+  "available_equipment": [],
+  "injuries": [
+    "lower back pain"
+  ],
+  "dietary_restrictions": []
+}

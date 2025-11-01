@@ -1,0 +1,19 @@
+{
+  "user_id": "user_xqy22zj9o",
+  "name": "tanay",
+  "age": 17,
+  "height_cm": 176.0,
+  "weight_kg": 76.0,
+  "gender": "male",
+  "sport": "athletics",
+  "experience_years": 0,
+  "goals": [
+    "injury_recovery",
+    "done"
+  ],
+  "duration_weeks": 23,
+  "sessions_per_week": 5,
+  "available_equipment": [],
+  "injuries": [],
+  "dietary_restrictions": []
+}

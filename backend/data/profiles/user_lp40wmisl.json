@@ -1,0 +1,22 @@
+{
+  "user_id": "user_lp40wmisl",
+  "name": "aksh'",
+  "age": 34,
+  "height_cm": 178.0,
+  "weight_kg": 54.0,
+  "gender": "female",
+  "sport": "boxing",
+  "experience_years": 7,
+  "goals": [
+    "agility",
+    "endurance",
+    "done"
+  ],
+  "duration_weeks": 6,
+  "sessions_per_week": 5,
+  "available_equipment": [],
+  "injuries": [
+    "knee pain"
+  ],
+  "dietary_restrictions": []
+}
