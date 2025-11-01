@@ -1,6 +1,6 @@
-# [PROJECT NAME, e.g., Aegis AI Coach]
+# [PROJECT NAME, COACH CARTER]
 
-**Team:** [Your Team Name]
+**Team:** LATECOMERS
 **Mission:** To build an AI chatbot that generates hyper-personalized, safe, and effective training programs by understanding a user's goals, biometrics, and injury history.
 
 This README is your guide. It contains the project goals and a file-by-file plan.
