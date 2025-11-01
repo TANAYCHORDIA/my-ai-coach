@@ -1,0 +1,17 @@
+# --- Core Backend ---
+fastapi
+uvicorn[standard]
+
+# --- AI / LLM Logic ---
+langchain
+openai
+
+# --- Environment Management ---
+python-dotenv
+
+# --- Vector Database (for RAG) ---
+faiss-cpu
+
+# --- Optional (recommended for smooth ops) ---
+pydantic
+requests

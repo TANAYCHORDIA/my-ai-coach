@@ -1,0 +1,19 @@
+# Python / FastAPI
+__pycache__/
+*.pyc
+.env
+venv/
+*.log
+
+# Node / React
+node_modules/
+build/
+.npm
+npm-debug.log
+*.log
+.DS_Store
+
+# IDE / OS
+.vscode/
+.idea/
+Thumbs.db
