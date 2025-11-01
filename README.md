@@ -1,6 +1,6 @@
-# [PROJECT NAME, e.g., Aegis AI Coach]
+# [PROJECT NAME, COACH CARTER]
 
-**Team:** [Your Team Name]
+**Team:** LATECOMERS
 **Mission:** To build an AI chatbot that generates hyper-personalized, safe, and effective training programs by understanding a user's goals, biometrics, and injury history.
 
 This README is your guide. It contains the project goals and a file-by-file plan.
@@ -158,7 +158,7 @@ cd backend
 pip install -r requirements.txt
 # Create a .env file and add your OPENAI_API_KEY
 uvicorn app.main:app --reload
-```bash
+```
 ### 2. Run the Frontend
 
 # From the root folder, in a *new* terminal:
@@ -166,4 +166,4 @@ uvicorn app.main:app --reload
 cd frontend
 npm install
 npm start
-```bash
+```
