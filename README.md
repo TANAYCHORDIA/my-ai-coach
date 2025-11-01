@@ -166,4 +166,4 @@ uvicorn app.main:app --reload
 cd frontend
 npm install
 npm start
-```bash
+```
