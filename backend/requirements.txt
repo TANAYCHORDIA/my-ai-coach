@@ -2,17 +2,19 @@
 fastapi
 uvicorn[standard]
 
-# --- AI / LLM Logic (Gemini) ---
-langchain
-langchain-google-genai
-google-generativeai
-
-# --- Environment Management ---
 python-dotenv
 
-# --- Vector Database (for RAG) ---
-faiss-cpu
+# --- AI Engine (Gemini) ---
+# Used in ai_engine.py for genai.GenerativeModel
+google-generativeai
 
-# --- Optional (recommended) ---
+# --- Local RAG (SentenceTransformer) ---
+# Used in ai_engine.py for the custom RAG pipeline
+sentence-transformers
+faiss-cpu
+torch
+numpy
+
+# --- Optional (recommended for smooth ops) ---
 pydantic
 requests
