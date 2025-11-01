@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optional: custom styles */
+body {
+  @apply bg-gray-900 text-white font-sans;
+}
+
+.app-container {
+  @apply min-h-screen flex flex-col items-center justify-between p-6;
+}
+
+.title {
+  @apply text-3xl font-bold mb-6 text-cyan-400;
+}
+
+.input-area {
+  @apply flex w-full max-w-3xl gap-4 mt-4;
+}
+
+.input-area input {
+  @apply flex-1 px-4 py-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 outline-none;
+}
+
+.input-area button {
+  @apply px-5 py-3 bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-semibold rounded-lg hover:from-cyan-700 hover:to-blue-700 transition-all;
+}
+
+.loading {
+  @apply text-gray-400 text-center mt-4 italic;
+}
+
+.risk-meters {
+  @apply mt-3;
+}
+.chat-toggle-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #00ff99;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
