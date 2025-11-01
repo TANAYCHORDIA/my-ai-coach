@@ -10,7 +10,7 @@ openai
 python-dotenv
 
 # --- Vector Database (for RAG) ---
-faiss-cpu
+#faiss-cpu
 
 # --- Optional (recommended for smooth ops) ---
 pydantic
